@@ -16,21 +16,22 @@ dependencies:
 
   # Controller Packges
   http:
-  provider: ^4.3.2+3
-  get: ^3.26.0
+  provider: ^6.0.2
+  get: ^4.6.1
   data_connection_checker: ^0.3.4
-  shared_preferences: ^0.5.12+4
+  shared_preferences: ^2.0.13
   time_formatter: ^1.0.0
-  intl: ^0.16.1
+  intl: ^0.17.0
   get_storage: 
 
   # UI Packages
-  flutter_svg_provider: ^0.1.8
+  flutter_svg_provider: ^1.0.2
   menu_button: ^1.4.1
   font_awesome_flutter: ^9.0.0
   
   flutter_sparkline: ^0.1.0
-  syncfusion_flutter_charts: ^18.4.49
+  syncfusion_flutter_charts: ^19.4.48+1
+  google_mobile_ads: ^1.0.1
  
   # syncfusion_flutter_charts:
 

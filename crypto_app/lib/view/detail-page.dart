@@ -10,13 +10,13 @@ import 'package:syncfusion_flutter_charts/charts.dart';
 import 'package:syncfusion_flutter_charts/sparkcharts.dart';
 
 class DetailPage extends StatefulWidget {
-  final String title;
-  final double price;
-  final double mrkp;
-  final String image;
-  final List sparkLink;
+  // final String title;
+  // final double price;
+  // final double mrkp;
+  // final String image;
+  // final List sparkLink;
 
-  DetailPage({this.image, this.mrkp, this.price, this.title, this.sparkLink});
+  // DetailPage({this.image, this.mrkp, this.price, this.title, this.sparkLink});
 
   @override
   _DetailPageState createState() => _DetailPageState();
@@ -24,6 +24,12 @@ class DetailPage extends StatefulWidget {
 
 class _DetailPageState extends State<DetailPage> {
   final _currency = Get.put(SaveCurrency());
+
+  String title = Get.arguments['title'];
+  double price = Get.arguments['price'];
+  double mrkp = Get.arguments['mrkp'];
+  String image = Get.arguments['image'];
+  // List sparkLink = Get.arguments['sparkLink'];
 
   List<ChartModel> _chartdata;
 
@@ -38,7 +44,7 @@ class _DetailPageState extends State<DetailPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title.toUpperCase()),
+        title: Text(title.toUpperCase()),
       ),
       body: Center(
         child: Column(
@@ -47,13 +53,13 @@ class _DetailPageState extends State<DetailPage> {
           children: [
             CircleAvatar(
               radius: 40.0,
-              backgroundImage: NetworkImage(widget.image),
+              backgroundImage: NetworkImage(image),
             ),
             SizedBox(
               height: 20.0,
             ),
             Text(
-              widget.title.toUpperCase(),
+              title.toUpperCase(),
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 35.0,
@@ -66,7 +72,7 @@ class _DetailPageState extends State<DetailPage> {
             Text(
               'Price : ' +
                   ' ' +
-                  MoneyFormat.detailed.format(widget.price).toString() +
+                  MoneyFormat.detailed.format(price).toString() +
                   ' ' +
                   _currency.getMoney?.toUpperCase(),
               style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
@@ -77,7 +83,7 @@ class _DetailPageState extends State<DetailPage> {
             Text(
               'Market Capital : ' +
                   ' ' +
-                  MoneyFormat.detailed.format(widget.mrkp).toString() +
+                  MoneyFormat.detailed.format(mrkp).toString() +
                   ' ' +
                   _currency.getMoney?.toUpperCase(),
               style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),

@@ -8,13 +8,11 @@ import 'package:flutter_svg_provider/flutter_svg_provider.dart';
 import 'package:provider/provider.dart';
 
 class DataSearch extends SearchDelegate {
-  Model _model;
   final bool connection;
   final List<Model> m;
   DataSearch({this.m, this.connection});
   @override
   List<Widget> buildActions(BuildContext context) {
-    // TODO: implement buildActions
     return [
       IconButton(
           onPressed: () {
@@ -26,8 +24,6 @@ class DataSearch extends SearchDelegate {
 
   @override
   Widget buildLeading(BuildContext context) {
-    // TODO: implement buildLeading
-
     return IconButton(
         onPressed: () {
           close(context, null);
@@ -37,7 +33,6 @@ class DataSearch extends SearchDelegate {
 
   @override
   Widget buildResults(BuildContext context) {
-    // TODO: implement buildResults
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -103,11 +98,10 @@ class DataSearch extends SearchDelegate {
               }
             } else if (snapshot.hasError) {
               return Text('${snapshot.error}');
-            } else if (!snapshot.hasData) {
-              return Center(
-                child: CircularProgressIndicator(),
-              );
             }
+            return Center(
+              child: CircularProgressIndicator(),
+            );
           });
     }
     return Scaffold(body: Offline());

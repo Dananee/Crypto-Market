@@ -1,18 +1,14 @@
 import 'dart:convert';
 import 'package:crypto_coins_news_app/controller/povider.dart';
-import 'package:crypto_coins_news_app/controller/setting_page.dart';
-import 'package:crypto_coins_news_app/model/currencies.dart';
 import 'package:crypto_coins_news_app/model/model.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:http/http.dart' as http;
 import 'package:get/get.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class GetData extends GetxController {
   final _currency = Get.put(SaveCurrency());
 
   List<dynamic> chartdata = [];
-  
+
   Future<List<Model>> getData() async {
     Map<String, dynamic> quriesParam = {
       'vs_currency': _currency.getMoney ?? 'usd',
@@ -42,7 +38,6 @@ class GetData extends GetxController {
   }
 
   Future<List<dynamic>> getChart() async {
-    var listData;
     Uri url = Uri.parse(
         'https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=usd&days=7');
 

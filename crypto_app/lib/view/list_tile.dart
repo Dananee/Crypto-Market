@@ -56,14 +56,20 @@ class ListOfTile extends StatelessWidget {
           ' ' +
           currency.getMoney?.toUpperCase()),
       onTap: () {
-        Navigator.of(context).push(MaterialPageRoute(builder: (_) {
-          return DetailPage(
-            title: title ?? 'Unavailable',
-            price: price ?? 0.00,
-            image: image,
-            mrkp: capital ?? 0.00,
-          );
-        }));
+        // Navigator.of(context).push(MaterialPageRoute(builder: (_) {
+        //   return DetailPage(
+        // title: title ?? 'Unavailable',
+        // price: price ?? 0.00,
+        // image: image,
+        // mrkp: capital ?? 0.00,);
+        // }));
+
+        Get.to(() => DetailPage(), arguments: {
+          "title": title ?? 'Unavailable',
+          "price": price ?? 0.00,
+          "image": image,
+          "mrkp": capital ?? 0.00
+        });
       },
     );
   }
